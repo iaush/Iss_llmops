@@ -18,7 +18,6 @@ on:
 env:
   OLLAMA_API_KEY: ${{ secrets.OLLAMA_API_KEY }}
   OLLAMA_BASE_URL: ${{ secrets.OLLAMA_BASE_URL }}
-  OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
 jobs:
   deepeval:
@@ -55,8 +54,9 @@ jobs:
           ollama pull llama3.2
 
       - name: Configure DeepEval to use Ollama
+        working-directory: deepeval-tests
         run: |
-          deepeval set-ollama --model=llama3.2 
+          deepeval set-ollama --model=llama3.2 --base-url="http://localhost:11434"
           
       - name: Wait for backend to be ready
         run: |
