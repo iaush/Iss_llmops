@@ -18,6 +18,7 @@ on:
 env:
   OLLAMA_API_KEY: ${{ secrets.OLLAMA_API_KEY }}
   OLLAMA_BASE_URL: ${{ secrets.OLLAMA_BASE_URL }}
+  LOCAL_MODEL_NAME: ${{ secrets.LOCAL_MODEL_NAME }}
 
 jobs:
   deepeval:
